@@ -4,6 +4,7 @@ public class Ball {
     private int x;
     private int y;
 
+    // Constructs the ball
     public Ball(){
         this.x = START_X;
         this.y = START_Y;

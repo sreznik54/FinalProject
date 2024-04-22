@@ -4,6 +4,7 @@ public class MazeCell {
     private boolean visited;
     private boolean wall;
 
+    // Constructs the cell
     public MazeCell(int x, int y, boolean wall)
     {
        this.x = x;

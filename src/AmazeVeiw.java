@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
+
 public class AmazeVeiw extends JFrame{
     private static final int WINDOW_WIDTH = 600,
             WINDOW_HEIGHT = 600;
@@ -8,7 +9,7 @@ public class AmazeVeiw extends JFrame{
 
     private Amaze game;
 
-    // Constructs the window
+    // Constructs the game window
     public AmazeVeiw(Amaze a) {
         // Passes in the backend
         this.game = a;
