@@ -1,4 +1,5 @@
 import java.awt.event.KeyListener;
+//Sam Reznik
 
 public class Amaze implements KeyListener {
     private MazeCell[][] board;
