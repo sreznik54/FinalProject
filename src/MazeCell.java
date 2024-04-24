@@ -1,3 +1,5 @@
+import java.awt.*;
+
 public class MazeCell {
     private int x;
     private int y;
@@ -43,5 +45,20 @@ public class MazeCell {
 
     public void setWall(boolean wall) {
         this.wall = wall;
+    }
+
+    public void draw(Graphics g) {
+        if (wall) {
+            g.setColor(Color.gray);
+        } else if (visited) {
+            g.setColor(Color.gray);
+            g.drawRect(x, y , 50, 50);
+            g.setColor(Color.CYAN);
+        } else {
+            g.setColor(Color.gray);
+            g.drawRect(x, y , 50, 50);
+            g.setColor(Color.LIGHT_GRAY);
+        }
+        g.fillRect(x, y , 50, 50);
     }
 }
