@@ -7,11 +7,11 @@ public class MazeCell {
     private boolean wall;
 
     // Constructs the cell
-    public MazeCell(int x, int y, boolean wall)
+    public MazeCell(int x, int y)
     {
        this.x = x;
        this.y = y;
-       this.wall = wall;
+       this.wall = false;
        visited = false;
     }
 

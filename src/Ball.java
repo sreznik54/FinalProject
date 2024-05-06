@@ -35,46 +35,63 @@ public class Ball {
     }
 
     public void move(int direction){
-        int i = 1;
-        if(direction == 1){
-            while (!game.getBoardCell(row + 1,col).isWall())
+
+        if(direction == Amaze.RIGHT){
+            MazeCell current = game.getBoardCell(row + 1, col);
+            MazeCell past = game.getBoardCell(row, col);
+            while (!current.isWall())
             {
-                game.getBoardCell(row,col).setVisited(true);
-                row += i;
-                x = game.getBoardCell(row,col).getX();
-                y = game.getBoardCell(row,col).getY();
-                i++;
+                past = current;
+                current = game.getBoardCell(row + 1, col);
+                past.setVisited(true);
+                row++;
             }
+            x = past.getX();
+            y = past.getY();
+            row--;
         }
-        else if(direction == 2){
-            while (!game.getBoardCell(row,col + 1).isWall())
+        else if(direction == Amaze.DOWN){
+            MazeCell current = game.getBoardCell(row, col + 1);
+            MazeCell past = game.getBoardCell(row, col);
+            while (!current.isWall())
             {
-                game.getBoardCell(row,col).setVisited(true);
-                col += i;
-                x = game.getBoardCell(row,col).getX();
-                y = game.getBoardCell(row,col).getY();
-                i++;
+                past = current;
+                current = game.getBoardCell(row, col + 1);
+                past.setVisited(true);
+                col++;
             }
+            x = past.getX();
+            y = past.getY();
+            col--;
         }
-        else if(direction == 3){
-            while (!game.getBoardCell(row - 1,col).isWall())
+        else if(direction == Amaze.LEFT){
+            MazeCell current = game.getBoardCell(row - 1, col);
+            MazeCell past = game.getBoardCell(row, col);
+            while (!current.isWall())
             {
-                game.getBoardCell(row,col).setVisited(true);
-                row -= i;
-                x = game.getBoardCell(row,col).getX();
-                y = game.getBoardCell(row,col).getY();
-                i++;
+                past = current;
+                current = game.getBoardCell(row - 1, col);
+                past.setVisited(true);
+                row--;
+
             }
+            x = past.getX();
+            y = past.getY();
+            row++;
         }
-        else if(direction == 4){
-            while (!game.getBoardCell(row,col - 1).isWall())
+        else if(direction == Amaze.UP){
+            MazeCell current = game.getBoardCell(row, col - 1);
+            MazeCell past = game.getBoardCell(row, col);
+            while (!current.isWall())
             {
-                game.getBoardCell(row,col).setVisited(true);
-                col -= i;
-                x = game.getBoardCell(row,col).getX();
-                y = game.getBoardCell(row,col).getY();
-                i++;
+                past = current;
+                current = game.getBoardCell(row, col - 1);
+                past.setVisited(true);
+                col--;
             }
+            x = past.getX();
+            y = past.getY();
+            col++;
         }
     }
 

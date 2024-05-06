@@ -21,17 +21,17 @@ public class AmazeVeiw extends JFrame{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
     }
+    // Draws the number of moves the player has done in the top left corner
+    public void drawScore(Graphics g){
+            g.setColor(Color.WHITE);
+            g.setFont(new Font(Font.SERIF, Font.BOLD, 30));
+            g.drawString("Moves: " + String.valueOf(game.getMoves()), 10, 60 );
+    }
 
+    // Draws the game
     public void paint(Graphics g)
     {
-        // Color the entire KeyListenerDemo window white
-        // First set the Graphics Color "state" to WHITE
-        g.setColor(Color.gray);
-
-        // Because g.Color was set to WHITE, the rectangle will be WHITE
-        g.fillRect(0,  0, WINDOW_WIDTH, WINDOW_HEIGHT);
-
-        // Now have the ball draw itself on top of the White window.
+        // Draws the board
         for (int i = 0; i < 12; i++)
         {
             for (int j = 0; j < 12; j++)
@@ -39,6 +39,9 @@ public class AmazeVeiw extends JFrame{
                 game.getBoard()[i][j].draw(g);
             }
         }
+        // Draws the ball
         game.getB().draw(g);
+        // Draws the score
+        drawScore(g);
     }
 }
