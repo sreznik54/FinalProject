@@ -47,14 +47,20 @@ public class MazeCell {
         this.wall = wall;
     }
 
+    // Draws the each cell
     public void draw(Graphics g) {
+        // If the cell is a wall draw it in dark gray
         if (wall) {
             g.setColor(Color.gray);
-        } else if (visited) {
+        }
+        // If the cell has been visited draw it in Cyan
+        else if (visited) {
             g.setColor(Color.gray);
             g.drawRect(x, y , 50, 50);
             g.setColor(Color.CYAN);
-        } else {
+        }
+        // If neither draw a light gray cell with a dark gray boarder
+        else {
             g.setColor(Color.gray);
             g.drawRect(x, y , 50, 50);
             g.setColor(Color.LIGHT_GRAY);

@@ -129,9 +129,18 @@ public class Amaze implements KeyListener {
         }
         // Adds 1 to the number of moves
         moves++;
+        if (moves > 25)
+        {
+            win = isWin();
+        }
         window.repaint();
     }
 
+    public boolean getWin(){
+        return win;
+    }
+
+    // Return true if all squares have been visited
     public boolean isWin(){
         for (int i = 0; i < 12; i++)
         {

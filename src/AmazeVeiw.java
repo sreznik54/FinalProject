@@ -28,6 +28,15 @@ public class AmazeVeiw extends JFrame{
             g.drawString("Moves: " + String.valueOf(game.getMoves()), 10, 60 );
     }
 
+    // Draws the win screen
+    public void drawWin(Graphics g){
+        g.setColor(Color.gray);
+        g.fillRect(0,0,600,600);
+        g.setColor(Color.WHITE);
+        g.setFont(new Font(Font.SERIF, Font.BOLD, 30));
+        g.drawString("YOU WON IN " + String.valueOf(game.getMoves()) + " MOVES",125, 300 );
+    }
+
     // Draws the game
     public void paint(Graphics g)
     {
@@ -43,5 +52,8 @@ public class AmazeVeiw extends JFrame{
         game.getB().draw(g);
         // Draws the score
         drawScore(g);
+        if(game.getWin()) {
+            drawWin(g);
+        }
     }
 }

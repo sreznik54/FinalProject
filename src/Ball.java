@@ -34,18 +34,23 @@ public class Ball {
         this.y = y;
     }
 
+    // Moves in the direction of the key that was pressed
     public void move(int direction){
 
         if(direction == Amaze.RIGHT){
+            // Sets a current and passed maze cell
             MazeCell current = game.getBoardCell(row + 1, col);
             MazeCell past = game.getBoardCell(row, col);
+            // Checks if the current cell is a wall
             while (!current.isWall())
             {
+                // sets the past cell to the current cell, increments by 1 and sets cell as visited
                 past = current;
                 current = game.getBoardCell(row + 1, col);
                 past.setVisited(true);
                 row++;
             }
+            // Sets the x and y coordinates of the ball to the last cell that wasn't a wall
             x = past.getX();
             y = past.getY();
             row--;
@@ -95,7 +100,7 @@ public class Ball {
         }
     }
 
-
+    // Draws the ball
     public void draw(Graphics g) {
         g.setColor(Color.WHITE);
         g.fillOval(x,y,50,50);
